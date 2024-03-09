@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <connection-fields>
-  <field name="authentication" label="Authentication" category="authentication" value-type="string" editable="false" default-value="auth-none" />
-  <field name="server" label="@string/database_prompt/" category="general" value-type="file" editable="true" default-value="" />
+  <field name="server" label="DuckDB Server" category="general" value-type="selection" editable="true" default-value="local" >
+    <selection-group>
+      <option value="local" label="Local File"/>
+      <option value="memory" label="In-memory database"/>
+      <option value="motherduck" label="MotherDuck"/>
+      <option value="custom" label="Custom connection string"/>
+    </selection-group>
+  </field>
+
+  <field name="authentication" label="Authentication" category="authentication" value-type="selection" editable="true" default-value="auth-none" >
+    <selection-group>
+      <conditions>
+        <condition field="server" value="motherduck"/>
+        <condition field="server" value="custom"/>
+      </conditions>
+      <option value="auth-none" label="No Authentication"/>
+      <option value="auth-pass" label="Token"/>
+    </selection-group>
+    <selection-group>
+      <conditions>
+        <condition field="server" value="local"/>
+        <condition field="server" value="memory"/>
+      </conditions>
+      <option value="auth-none" label="No Authentication"/>
+    </selection-group>
+  </field>
+  <field name="password" label="Token" category="authentication" value-type="string" secure="true">
+    <conditions>
+      <condition field="authentication" value="auth-pass"/>
+    </conditions>
+  </field>
+  <!-- Specifying the database location, depending on server: local file gets file selector, motherduck gets database name -->
+  <field name="v-connection_string_file" label="@string/database_prompt/" category="general" value-type="file" editable="true" default-value="" >
+    <conditions>
+      <condition field="server" value="local"/>
+    </conditions>
+  </field>
+  <field name="v-connection_string_md" label="MotherDuck Database" category="general" value-type="string" editable="true" default-value="" >
+    <conditions>
+      <condition field="server" value="motherduck"/>
+    </conditions>
+  </field>
+  <field name="v-connection_string_custom" label="Connection String" category="general" value-type="string" editable="true" default-value=":memory:" >
+    <conditions>
+      <condition field="server" value="custom"/>
+    </conditions>
+  </field>
 </connection-fields>

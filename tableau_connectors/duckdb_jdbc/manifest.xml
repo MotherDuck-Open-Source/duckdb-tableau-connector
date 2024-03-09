@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='duckdb_jdbc' superclass='jdbc' plugin-version='0.8.1' name='DuckDB JDBC' version='0.8.1' min-version-tableau='2020.4'>
+<connector-plugin class='duckdb_jdbc' superclass='jdbc' plugin-version='1.0.0' name='DuckDB' version='18.1' min-version-tableau='2020.4'>
   <vendor-information>
       <company name="MotherDuck"/>
       <support-link url="https://github.com/MotherDuck-Open-Source/duckdb-tableau-connector"/>
-      <driver-download-link url="https://github.com/duckdb/duckdb/releases/tag/v0.8.1"/>
+      <driver-download-link url="https://github.com/duckdb/duckdb/releases"/>
   </vendor-information>
-  <connection-customization class="duckdb_jdbc" enabled="true" version="0.8.1">
+  <connection-customization class="duckdb_jdbc" enabled="true" version="1.0">
     <vendor name="vendor"/>
     <driver name="driver"/>
     <customizations>

@@ -9,6 +9,11 @@
           <attribute-list>
             <attr>authentication</attr>
             <attr>server</attr>
+            <attr>password</attr>
+            <attr>initialSQL</attr>
+            <attr>v-connection_string_custom</attr>
+            <attr>v-connection_string_md</attr>
+            <attr>v-connection_string_local</attr>
           </attribute-list>
         </required-attributes>
       </connection-normalizer>

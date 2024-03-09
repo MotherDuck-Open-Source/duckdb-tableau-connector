@@ -1,13 +1,26 @@
 (function dsbuilder(attr) {
-    // MotherDuck connections require that a database be specified
-    // (without a database, any tables dragged in with the Tableau UI are lacking the 
-    // database. For example, they are treated as my_schema.my_table instead of the valid my_database.my_schema.my_table)
-    if (String(attr[connectionHelper.attributeServer]).startsWith('md:')) {
-        // Anything after the first : and before the first ? should be the database name. 
-        // If it is blank or non-existent, throw an error to request a database be specified.
-        var databaseAndParameters = String(attr[connectionHelper.attributeServer]).split(':',2)[1];
-        var database = databaseAndParameters.split('?')[0].trim();
-        if (database == '') {
+
+    var connectionString = "";
+
+    if (attr[connectionHelper.attributeServer] === "local") {
+        connectionString = String(attr['v-connection_string_file']);
+    } else if (attr[connectionHelper.attributeServer] === "motherduck") {
+        connectionString = String(attr['v-connection_string_md']);
+        if (!connectionString.startsWith("md:")) {
+            // if `md:` prefix is not already there, add it.
+            connectionString = "md:" + connectionString;
+        }
+
+    } else if (attr[connectionHelper.attributeServer] === "memory") {
+        connectionString = ":memory:";
+    } else if (attr[connectionHelper.attributeServer] === "custom") {
+        connectionString = String(attr['v-connection_string_custom']);
+    }
+
+    if (connectionString.startsWith("md:")) {
+        // Validate that a default database is provided, so queries can be fully qualified when in MotherDuck mode
+        var match = connectionString.match(/^md:(.*)(\?.*)?$/);
+        if (match[1] == '') {
             var errorMessage = 'Please specify a database when connecting using MotherDuck.';
             errorMessage += '\n' + 'A connection string should begin with "md:my_database_name",';
             errorMessage += 'and may be optionally followed by parameters in the format "?parameter1=value1&parameter2=value2".';
@@ -16,7 +29,9 @@
             return connectionHelper.ThrowTableauException(errorMessage);
         }
     }
-    var urlBuilder = "jdbc:duckdb:" + attr[connectionHelper.attributeServer];
 
-    return [urlBuilder];
+    let url = "jdbc:duckdb:";  // `jdbc:duckdb:` or `jdbc:duckdb::memory:` are equivalent
+    url +=  connectionString;
+
+    return [url];
 })
