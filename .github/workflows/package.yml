@@ -48,7 +48,7 @@ jobs:
       with:
         name: duckdb_taco
         path: |
-          sdk/connector-packager/packaged-connector/duckdb_jdbc.taco
+          sdk/connector-packager/packaged-connector/duckdb_jdbc*.taco
 
     - name: Upload Connector
       uses: actions/upload-artifact@v3
