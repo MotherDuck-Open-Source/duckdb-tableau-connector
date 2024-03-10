@@ -14,3 +14,8 @@ Leave it at 1.0 unless connection-customization changes.
 
 # Update user-agent connector version
 In `connectionProperties.js`, please update `MOTHERDUCK_CONNECTOR_VERSION` to the latest version.
+
+## Running an unsigned connector
+
+[See the detailed steps](./docs/unsigned_connector.md).
+
