@@ -13,7 +13,7 @@
             <attr>initialSQL</attr>
             <attr>v-connection_string_custom</attr>
             <attr>v-connection_string_md</attr>
-            <attr>v-connection_string_local</attr>
+            <attr>v-connection_string_file</attr>
           </attribute-list>
         </required-attributes>
       </connection-normalizer>
