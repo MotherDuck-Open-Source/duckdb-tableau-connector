@@ -13,8 +13,6 @@
 
     } else if (attr[connectionHelper.attributeServer] === "memory") {
         connectionString = ":memory:";
-    } else if (attr[connectionHelper.attributeServer] === "custom") {
-        connectionString = String(attr['v-connection_string_custom']);
     }
 
     if (connectionString.startsWith("md:")) {
