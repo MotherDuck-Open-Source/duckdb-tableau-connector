@@ -19,3 +19,9 @@ In `connectionProperties.js`, please update `MOTHERDUCK_CONNECTOR_VERSION` to th
 
 [See the detailed steps](./docs/unsigned_connector.md).
 
+## Running connector under development
+
+On Windows:
+```
+tableau.exe -DConnectPluginsPath=[CONNECTOR_LOCATION]
+```

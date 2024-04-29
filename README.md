@@ -61,11 +61,6 @@ To work with a MotherDuck database in Tableau, you have to provide the database 
 In `MotherDuck Database` field, provide the name of your database. You don't have to prefix it with `md:`:
 <img alt="Connection Dialogue" src="images/tableau-connect-motherduck.png" width="50%">
 
-## Other 
-
-This option allows you to provide the full JDBC connection string manually by typing a file path, `:memory:` or `md:database_name`.
-In most cases, one of the more specialized options (Local file, In-Memory Database, MotherDuck) will be simpler to use.
-
 ## Using
 
 Once connected, you can use the Tableau connection window to choose schemas, join tables,
