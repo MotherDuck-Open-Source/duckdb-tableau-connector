@@ -6,7 +6,6 @@
       <option value="local" label="Local File"/>
       <option value="memory" label="In-memory database"/>
       <option value="motherduck" label="MotherDuck"/>
-      <option value="custom" label="Custom connection string"/>
     </selection-group>
   </field>
 
@@ -14,7 +13,6 @@
     <selection-group>
       <conditions>
         <condition field="server" value="motherduck"/>
-        <condition field="server" value="custom"/>
       </conditions>
       <option value="auth-none" label="No Authentication"/>
       <option value="auth-pass" label="Token"/>
@@ -41,11 +39,6 @@
   <field name="v-connection_string_md" label="MotherDuck Database" category="general" value-type="string" editable="true" default-value="" >
     <conditions>
       <condition field="server" value="motherduck"/>
-    </conditions>
-  </field>
-  <field name="v-connection_string_custom" label="Connection String" category="general" value-type="string" editable="true" default-value=":memory:" >
-    <conditions>
-      <condition field="server" value="custom"/>
     </conditions>
   </field>
 </connection-fields>
