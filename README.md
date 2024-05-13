@@ -11,7 +11,7 @@ The connector works with DuckDB JDBC driver v0.9.2 or higher.
 
 ## Installation
 
-1. Download a [recent version of the driver](https://github.com/duckdb/duckdb/releases) and [copy it into the Tableau Drivers directory](https://tableau.github.io/connector-plugin-sdk/docs/drivers#jdbc-driver-class-isolation):
+1. Download a [recent version of the DuckDB JDBC driver](https://github.com/duckdb/duckdb/releases) and copy it into the Tableau Drivers directory:
    * Desktop Windows: `C:\Users\[YourUser]\Documents\My Tableau Repository\Drivers`
    * Desktop MacOS: `/Users/[YourUser]/Documents/My Tableau Repository/Drivers`
    * Server Windows: `C:\ProgramData\Tableau\Tableau Server\data\tabsvc\vizqlserver\Drivers`
