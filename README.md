@@ -11,16 +11,17 @@ The connector works with DuckDB JDBC driver v0.9.2 or higher.
 
 ## Installation
 
-1. Download a [recent version of the driver](https://github.com/duckdb/duckdb/releases) and [copy it into the Tableau Drivers directory](https://tableau.github.io/connector-plugin-sdk/docs/drivers#jdbc-driver-class-isolation):
-  * MacOS: `~/Library/Tableau/Drivers/`
-  * Windows: `C:\Program Files\Tableau\Drivers`
-  * Linux: `/opt/tableau/tableau_driver/jdbc`.
+1. Download a [recent version of the DuckDB JDBC driver](https://github.com/duckdb/duckdb/releases) and copy it into the Tableau Drivers directory:
+   * Desktop Windows: `C:\Users\[YourUser]\Documents\My Tableau Repository\Drivers`
+   * Desktop MacOS: `/Users/[YourUser]/Documents/My Tableau Repository/Drivers`
+   * Server Windows: `C:\ProgramData\Tableau\Tableau Server\data\tabsvc\vizqlserver\Drivers`
+   * Server Linux: `[Your Tableau Server Install Directory]/data/tabsvc/vizqlserver/Drivers`
 
 2. Download the signed tableau connector (aka "Taco file") file from the [latest available release](https://github.com/MotherDuck-Open-Source/duckdb-tableau-connector/releases) and copy it into the Connectors directory:
-   * MacOS: `~/Library/Tableau/Connectors/`
-   * Windows: `C:\Program Files\Tableau\Connectors`
-   * Linux: `/opt/tableau/tableau_driver/Connectors`.
- 
+   * Desktop Windows: `C:\Users\[YourUser]\Documents\My Tableau Repository\Connectors`
+   * Desktop MacOS: `/Users/[YourUser]/Documents/My Tableau Repository/Connectors`
+   * Server Windows: `C:\ProgramData\Tableau\Tableau Server\data\tabsvc\vizqlserver\Connectors`
+   * Server Linux: `[Your Tableau Server Install Directory]/data/tabsvc/vizqlserver/Connectors`
 
 ## Connecting
 
